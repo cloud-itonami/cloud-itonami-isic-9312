@@ -1,6 +1,6 @@
 # Governance
 
-`cloud-itonami-9312` is an OSS open-business blueprint for activities of sports clubs -- membership-based athletic and sporting clubs.
+`cloud-itonami-isic-9312` is an OSS open-business blueprint for activities of sports clubs -- membership-based athletic and sporting clubs.
 Governance covers both the capability layer and the operator model.
 
 ## Maintainers

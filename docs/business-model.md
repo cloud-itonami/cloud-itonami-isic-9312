@@ -2,7 +2,7 @@
 
 ## Classification
 
-- Repository: `cloud-itonami-9312`
+- Repository: `cloud-itonami-isic-9312`
 - ISIC Rev.5: `9312`
 - Activity: activities of sports clubs -- membership-based athletic and sporting clubs
 - Social impact: cultural/recreational access, data sovereignty, transparent audit

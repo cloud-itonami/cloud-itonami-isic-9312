@@ -1,4 +1,4 @@
-# cloud-itonami-9312
+# cloud-itonami-isic-9312
 
 Open Business Blueprint for **ISIC Rev.5 9312**: Activities of sports clubs.
 
