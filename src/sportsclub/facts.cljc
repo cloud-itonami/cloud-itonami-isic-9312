@@ -70,7 +70,16 @@
           :required-evidence ["Mitgliederverhaltensprotokoll (membership-conduct record)"
                               "Führungszeugnis-Nachweis (safeguarding-clearance record)"
                               "Disziplinaranhörungsprotokoll (disciplinary-hearing record)"
-                              "Widerspruchsmitteilung (appeal-notice record)"]}})
+                              "Widerspruchsmitteilung (appeal-notice record)"]}
+   "ESP" {:name "Spain"
+          :owner-authority "Consejo Superior de Deportes (CSD) / Ministerio de Justicia (Registro Central de Delincuentes Sexuales y de Trata de Seres Humanos)"
+          :legal-basis "Ley Orgánica 8/2021, de 4 de junio, de protección integral a la infancia y la adolescencia frente a la violencia (LOPIVI) arts. 48 y 57 (obligaciones de las entidades deportivas frente a menores -- protocolo de actuación y Delegado/a de protección -- y certificación negativa del Registro Central de Delincuentes Sexuales); Ley Orgánica 1/2002, de 22 de marzo, reguladora del Derecho de Asociación art. 21.c (derecho del asociado a ser oído antes de sanción disciplinaria)"
+          :national-spec "Protocolo de actuación frente a la violencia y figura del Delegado/a de protección en entidades deportivas con menores; certificado negativo de delitos de naturaleza sexual para el acceso a actividades con contacto habitual con menores; procedimiento contradictorio (audiencia previa + acuerdo motivado) antes de sanción/separación del asociado"
+          :provenance "https://www.boe.es/buscar/act.php?id=BOE-A-2021-9347"
+          :required-evidence ["Registro de conducta del socio (membership-conduct record)"
+                              "Certificado negativo de delitos de naturaleza sexual (safeguarding-clearance record)"
+                              "Acta de audiencia disciplinaria (disciplinary-hearing record)"
+                              "Notificación de impugnación (appeal-notice record)"]}})
 
 (defn spec-basis
   "The jurisdiction's requirement map, or nil -- nil means NO spec-basis,
