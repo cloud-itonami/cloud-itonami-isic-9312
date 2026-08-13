@@ -723,12 +723,12 @@ footer{max-width:76rem;margin:0 auto;padding:1.5rem 1.25rem 3rem;font-size:.82re
         (str "Of " (count attribution) " human-approved commits, "
              (if (seq kept)
                (str "<strong>" (count kept) "</strong> kept the approver ("
-                    (str/join ", " (map #(code (:register %)) (distinct (map :register kept)))) ")")
+                    (str/join ", " (map code (distinct (map :register kept)))) ")")
                "<strong>none</strong> kept the approver")
              " and "
              (if (seq lost)
                (str "<strong>" (count lost) "</strong> lost it ("
-                    (str/join ", " (map #(code (:register %)) (distinct (map :register lost)))) ")")
+                    (str/join ", " (map code (distinct (map :register lost)))) ")")
                "<strong>none</strong> lost it")
              ". Attribution here is therefore "
              (if (and (seq kept) (seq lost))
