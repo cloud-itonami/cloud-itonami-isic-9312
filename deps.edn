@@ -7,7 +7,13 @@
  ;; paths only resolve inside the monorepo checkout — a standalone fork
  ;; should override them with git coordinates.
  :deps {io.github.kotoba-lang/langgraph
-        {:local/root "../../kotoba-lang/langgraph"}}
+        {:local/root "../../kotoba-lang/langgraph"}
+        ;; デジタル庁デザインシステム -- the workspace-wide BASE design
+        ;; system. Used only by `sportsclub.render-html` to style the
+        ;; build-time operator console; the actor itself has no UI dep.
+        io.github.kotoba-lang/jp-go-digital-design-system
+        {:git/url "https://github.com/kotoba-lang/jp-go-digital-design-system"
+         :git/sha "83db99546eabc53613ae826ea41d1533a3c574af"}}
  :aliases
  {;; offline workspace dev -- pin transitive langchain to local checkout
   :dev {:override-deps
@@ -15,6 +21,10 @@
          {:local/root "../../kotoba-lang/langchain"}}}
   ;; clojure -M:dev:run  -> drive the demo through one OperationActor
   :run {:main-opts ["-m" "sportsclub.sim"]}
+  ;; clojure -M:render-html -> RUN the real actor and render the result to
+  ;; docs/samples/operator-console.html. Refuses to write the file if the
+  ;; run produced zero HARD governor refusals.
+  :render-html {:main-opts ["-m" "sportsclub.render-html"]}
   :test {:extra-paths ["test"]
          :extra-deps {io.github.cognitect-labs/test-runner
                       {:git/tag "v0.5.1" :git/sha "dfb30dd"}}
