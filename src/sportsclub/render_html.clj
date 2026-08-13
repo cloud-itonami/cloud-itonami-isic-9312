@@ -58,7 +58,13 @@
   `random-uuid`, no `System/currentTimeMillis`, no date stamp. Every
   collection rendered is either an append-ordered vector (the ledger,
   the action history) or explicitly sorted. Two builds are byte-
-  identical; `docs/samples/README.md` records how that is checked.
+  identical; check it by rendering twice into a scratch directory and
+  diffing:
+
+    D=$(mktemp -d)
+    clojure -M:dev:render-html $D/a.html
+    clojure -M:dev:render-html $D/b.html
+    diff $D/a.html $D/b.html && echo deterministic
 
   Usage: `clojure -M:render-html [out-file]`
   (default `docs/samples/operator-console.html`)."
