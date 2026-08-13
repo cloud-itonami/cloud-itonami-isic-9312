@@ -2513,7 +2513,7 @@ footer{max-width:76rem;margin:0 auto;padding:1.5rem 1.25rem 3rem;font-size:.82re
 <main>
   <section class="dds-ext-card" id="seed">
     <h2>Seeded member directory &mdash; the ground truth every row traces back to</h2>
-    <p class="lead">Read out of the store with <code>store/all-members</code> before the first run. These four members are the ENTIRE universe of entities on this page; no id below was invented. The last four columns are the facts the governor's HARD checks recompute independently of anything the advisor says.</p>
+    <p class="lead">Read out of the store with <code>store/all-members</code> before the first run. These members are the ENTIRE universe of entities on this page; no id below was invented. The last four columns are the facts the governor's HARD checks recompute independently of anything the advisor says.</p>
     <div class="scroll">
     <table>
       <thead><tr><th>member</th><th>name</th><th>jurisdiction</th><th>notice reason</th><th>days since notice</th><th>min appeal window</th><th>complaint unresolved?</th><th>action finalized?</th></tr></thead>
@@ -2551,7 +2551,7 @@ footer{max-width:76rem;margin:0 auto;padding:1.5rem 1.25rem 3rem;font-size:.82re
     </div>
   </section>
   <section class="dds-ext-card" id="hard">
-    <h2>HARD governor refusals &mdash; 5 (all five of <code>governor/check</code>'s HARD rules, once each)</h2>
+    <h2>HARD governor refusals &mdash; 5 (5 distinct <code>governor/check</code> rules)</h2>
     <p class="lead">A HARD violation cannot be approved away: the <code>:decide</code> node routes straight to <code>:hold</code> and the <code>:request-approval</code> node is never reached, so no human is ever asked. The right-hand column re-reads the store at render time to show the fact each rule fired on &mdash; it is the store's answer, not a restatement of the rule.</p>
     <div class="scroll">
     <table>
@@ -2673,7 +2673,7 @@ footer{max-width:76rem;margin:0 auto;padding:1.5rem 1.25rem 3rem;font-size:.82re
   </section>
   <section class="dds-ext-card" id="members-final">
     <h2>Member register after the run</h2>
-    <p class="lead">The same four seeded members, re-read after all 13 runs. Exactly one membership action was finalized; the three refusals left their subjects untouched, which is the point &mdash; a HARD hold performs no SSoT mutation at all.</p>
+    <p class="lead">The same 4 seeded members, re-read after all 13 runs. 1 membership action(s) were finalized; the 5 HARD refusals left their subjects untouched, which is the point &mdash; a HARD hold performs no SSoT mutation at all.</p>
     <div class="scroll">
     <table>
       <thead><tr><th>member</th><th>jurisdiction</th><th>action state</th><th>action number</th><th>status</th><th>complaint unresolved?</th></tr></thead>

@@ -633,7 +633,7 @@ footer{max-width:76rem;margin:0 auto;padding:1.5rem 1.25rem 3rem;font-size:.82re
      (section
       "seed" "Seeded member directory &mdash; the ground truth every row traces back to"
       (str "Read out of the store with <code>store/all-members</code> before the first run. "
-           "These four members are the ENTIRE universe of entities on this page; no id below was invented. "
+           "These members are the ENTIRE universe of entities on this page; no id below was invented. "
            "The last four columns are the facts the governor's HARD checks recompute independently of anything the advisor says.")
       ["member" "name" "jurisdiction" "notice reason" "days since notice" "min appeal window"
        "complaint unresolved?" "action finalized?"]
@@ -650,7 +650,7 @@ footer{max-width:76rem;margin:0 auto;padding:1.5rem 1.25rem 3rem;font-size:.82re
 
      (section
       "hard" (str "HARD governor refusals &mdash; " (count hard-facts)
-                  " (all five of <code>governor/check</code>'s HARD rules, once each)")
+                  " (" (count hard-rules) " distinct <code>governor/check</code> rules)")
       (str "A HARD violation cannot be approved away: the <code>:decide</code> node routes straight to <code>:hold</code> and the "
            "<code>:request-approval</code> node is never reached, so no human is ever asked. The right-hand column re-reads the "
            "store at render time to show the fact each rule fired on &mdash; it is the store's answer, not a restatement of the rule.")
@@ -781,8 +781,9 @@ footer{max-width:76rem;margin:0 auto;padding:1.5rem 1.25rem 3rem;font-size:.82re
 
      (section
       "members-final" "Member register after the run"
-      (str "The same four seeded members, re-read after all " (esc (count receipts))
-           " runs. Exactly one membership action was finalized; the three refusals left their subjects untouched, "
+      (str "The same " (esc (count seed)) " seeded members, re-read after all " (esc (count receipts))
+           " runs. " (esc (count actions)) " membership action(s) were finalized; the "
+           (esc (count hard-facts)) " HARD refusals left their subjects untouched, "
            "which is the point &mdash; a HARD hold performs no SSoT mutation at all.")
       ["member" "jurisdiction" "action state" "action number" "status" "complaint unresolved?"]
       (map final-member-row (store/all-members db)))
