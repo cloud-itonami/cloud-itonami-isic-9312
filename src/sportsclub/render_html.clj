@@ -68,7 +68,7 @@
 
   Usage: `clojure -M:render-html [out-file]`
   (default `docs/samples/operator-console.html`)."
-  (:require [clojure.string :as str]
+  (:require [kotoba.lang.text :as str]
             [clojure.walk :as walk]
             [jp-go-dds.skin :as skin]
             [langgraph.graph :as g]
@@ -250,7 +250,7 @@
 
 (defn- approver-shaped-key? [k]
   (and (or (keyword? k) (string? k))
-       (str/includes? (str/lower-case (name k)) "approv")))
+       (str/includes? (str/lower (name k)) "approv")))
 
 (defn- approver-hits
   "Every approver-shaped [key value] pair anywhere inside `x`, sorted."

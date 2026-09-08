@@ -34,7 +34,7 @@
   club would keep, not the act of finalizing the membership action
   itself (that is `sportsclub.operation`'s `:actuation/finalize-
   membership-action`, always human-gated -- see README `Actuation`)."
-  (:require [clojure.string :as str]))
+  (:require [kotoba.lang.text :as str]))
 
 (defn- unsigned-certificate
   "Every certificate this actor produces is UNSIGNED -- signature is the
@@ -77,7 +77,7 @@
     (throw (ex-info "membership-action: jurisdiction required" {})))
   (when (< sequence 0)
     (throw (ex-info "membership-action: sequence must be >= 0" {})))
-  (let [action-number (str (str/upper-case jurisdiction) "-MSA-" (zero-pad sequence 6))
+  (let [action-number (str (str/upper jurisdiction) "-MSA-" (zero-pad sequence 6))
         record {"record_id" action-number
                 "kind" "membership-action-draft"
                 "member_id" member-id
