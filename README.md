@@ -125,7 +125,7 @@ enforce this (`sportsclub.governor`'s `:actuation/finalize-
 membership-action` high-stakes gate and `sportsclub.phase`'s phase
 table, which never puts `:actuation/finalize-membership-action` in
 any phase's `:auto` set) -- see `sportsclub.phase`'s docstring and
-`test/sportsclub/phase_test.clj`'s
+`test/sportsclub/phase_test.kotoba`'s
 `finalize-membership-action-never-auto-at-any-phase`. The actor may
 draft, check and recommend; a human club officer is always the one
 who actually finalizes a membership action. Matching `leasing`'s/
@@ -221,14 +221,14 @@ reference at all.
 
 | File | Role |
 |---|---|
-| `src/sportsclub/store.cljc` | **Store** protocol -- `MemStore` ‖ `DatomicStore` (`langchain.db`) + append-only audit ledger + membership-action history. No dynamically-filed sub-record -- the actuation op acts directly on a pre-seeded member, and the double-actuation guard checks a dedicated `:membership-action-finalized?` boolean rather than a `:status` value |
-| `src/sportsclub/registry.cljc` | Membership-action draft records, plus `appeal-window-still-open?` -- an HONEST reuse of this fleet's MINIMUM-threshold sufficiency family (the TENTH instance, reusing `personalservice`/9609's cooling-off-period SHAPE for a genuinely different real-world concept -- a due-process appeal window, not a consumer cooling-off right), not claimed as a new shape |
-| `src/sportsclub/facts.cljc` | Per-jurisdiction member-safeguarding/membership-governance catalog with an official spec-basis citation per entry, honest coverage reporting |
-| `src/sportsclub/clubopsllm.cljc` | **ClubOps-LLM** -- `mock-advisor` ‖ `llm-advisor`; intake/eligibility-verification/conduct-screening/membership-action proposals |
-| `src/sportsclub/governor.cljc` | **Membership Governor** -- 5 HARD checks (spec-basis · evidence-incomplete · disciplinary-complaint-unresolved, unconditional evaluation, honest reuse of `association`/9412's concept, the 58th grounding of this discipline · appeal-window-still-open, MINIMUM-threshold reuse, the 10th instance, not claimed as new · already-finalized guard) + 1 soft (confidence/actuation gate) |
-| `src/sportsclub/phase.cljc` | **Phase 0→3** -- read-only → assisted intake → assisted verify → supervised (membership-action finalization always human; member intake is the ONLY auto-eligible op, no direct capital risk) |
-| `src/sportsclub/operation.cljc` | **OperationActor** -- langgraph-clj StateGraph |
-| `src/sportsclub/sim.cljc` | demo driver |
+| `src/sportsclub/store.kotoba` | **Store** protocol -- `MemStore` ‖ `DatomicStore` (`langchain.db`) + append-only audit ledger + membership-action history. No dynamically-filed sub-record -- the actuation op acts directly on a pre-seeded member, and the double-actuation guard checks a dedicated `:membership-action-finalized?` boolean rather than a `:status` value |
+| `src/sportsclub/registry.kotoba` | Membership-action draft records, plus `appeal-window-still-open?` -- an HONEST reuse of this fleet's MINIMUM-threshold sufficiency family (the TENTH instance, reusing `personalservice`/9609's cooling-off-period SHAPE for a genuinely different real-world concept -- a due-process appeal window, not a consumer cooling-off right), not claimed as a new shape |
+| `src/sportsclub/facts.kotoba` | Per-jurisdiction member-safeguarding/membership-governance catalog with an official spec-basis citation per entry, honest coverage reporting |
+| `src/sportsclub/clubopsllm.kotoba` | **ClubOps-LLM** -- `mock-advisor` ‖ `llm-advisor`; intake/eligibility-verification/conduct-screening/membership-action proposals |
+| `src/sportsclub/governor.kotoba` | **Membership Governor** -- 5 HARD checks (spec-basis · evidence-incomplete · disciplinary-complaint-unresolved, unconditional evaluation, honest reuse of `association`/9412's concept, the 58th grounding of this discipline · appeal-window-still-open, MINIMUM-threshold reuse, the 10th instance, not claimed as new · already-finalized guard) + 1 soft (confidence/actuation gate) |
+| `src/sportsclub/phase.kotoba` | **Phase 0→3** -- read-only → assisted intake → assisted verify → supervised (membership-action finalization always human; member intake is the ONLY auto-eligible op, no direct capital risk) |
+| `src/sportsclub/operation.kotoba` | **OperationActor** -- langgraph-clj StateGraph |
+| `src/sportsclub/sim.kotoba` | demo driver |
 | `test/sportsclub/*_test.clj` | governor contract · phase invariants · store parity · registry conformance · facts coverage |
 
 ## Business-process coverage (honest)
