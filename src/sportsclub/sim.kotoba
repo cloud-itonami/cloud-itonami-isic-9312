@@ -1,5 +1,5 @@
 (ns sportsclub.sim
-  "Demo driver -- `clojure -M:dev:run`. Walks a clean member through
+  "Demo driver -- `kbb -M:dev:run`. Walks a clean member through
   intake -> jurisdiction verification -> disciplinary-complaint
   screening -> membership-action finalization proposal (always
   escalates) -> human approval -> commit, then shows four HARD holds

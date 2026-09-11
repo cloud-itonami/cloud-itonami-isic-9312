@@ -24,9 +24,9 @@
   :dev {:override-deps
         {io.github.kotoba-lang/langchain
          {:local/root "../../kotoba-lang/langchain"}}}
-  ;; clojure -M:dev:run  -> drive the demo through one OperationActor
+  ;; kbb -M:dev:run  -> drive the demo through one OperationActor
   :run {:main-opts ["-m" "sportsclub.sim"]}
-  ;; clojure -M:render-html -> RUN the real actor and render the result to
+  ;; kbb -M:render-html -> RUN the real actor and render the result to
   ;; docs/samples/operator-console.html. Refuses to write the file if the
   ;; run produced zero HARD governor refusals.
   :render-html {:main-opts ["-m" "sportsclub.render-html"]}
