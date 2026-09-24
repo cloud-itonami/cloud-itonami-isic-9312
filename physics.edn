@@ -1,0 +1,34 @@
+;; What this vertical's robot physically does, declared for
+;; kotoba.robotics.process (kotoba-lang/robotics). `kbb -M:dev:physics` runs it.
+;;
+;; README "Robotics premise": a facility-access control robot manages
+;; physical club-premises access for a sports club (ISIC 9312), gated by the
+;; Membership Governor. Besides the gate itself, its physical work on the
+;; premises is setting up and clearing away: towing the equipment cart across
+;; the grass pitch, and re-racking weight plates in the club gym.
+;;
+;; Every number without a cited source is marked `estimate` in its :basis.
+;; Replacing an estimate with a sourced value is this bot's growth work.
+{:physics/schema "itonami.physical-ai.spec.v1"
+ :repo "cloud-itonami/cloud-itonami-isic-9312"
+ :cases
+ [{:id :equipment-cart-across-pitch
+   :kind :transport
+   :procedure "robot tows the equipment cart (ball bags, cones, mats) from the store across the grass pitch to the training area"
+   :params {:mass-kg 60.0 :distance-m 100.0 :v-max-mps 1.2 :a-max-mps2 0.5
+            :brake-decel-mps2 1.0 :drive-force-n 250.0 :crr 0.10
+            :cog-height-m 0.45 :support-half-length-m 0.35 :payload-cog-height-m 0.70
+            :max-time-s 3600.0}
+   :sweep {:param :payload-kg :values [20.0 50.0 80.0 110.0 140.0 170.0]}
+   :quantity :cycle-time-s
+   :limit {:max 150.0 :basis "estimate: one store-to-pitch leg inside a 5-minute session changeover; crr 0.10 is an estimate for small wheels on natural turf"}
+   :boundary {:lo 0.0 :hi 250.0}}
+  {:id :rerack-weight-plate
+   :kind :manipulator
+   :procedure "arm lifts a weight plate from the gym floor and hangs it on the plate tree"
+   :params {:l1-m 0.55 :l2-m 0.50 :m1-kg 7.0 :m2-kg 5.0
+            :from [0.60 0.05] :to [0.35 0.80] :duration-s 3.0 :steps 500}
+   :sweep {:param :payload-kg :values [2.5 5.0 10.0 15.0 20.0 25.0]}
+   :quantity :peak-tau1-nm
+   :limit {:max 250.0 :basis "estimate: continuous shoulder torque of a 20 kg-payload-class industrial arm"}
+   :boundary {:lo 0.5 :hi 60.0}}]}
